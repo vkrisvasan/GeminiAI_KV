@@ -29,20 +29,20 @@ response = model.generate_content(user_input)
 
 #In simple cases, the response.text accessor is all you need. To display formatted Markdown text, use the to_markdown function:
 print(response.text)
-print("break1")
+print("break1\n")
 #If the API failed to return a result, use prompt_feedback to see if it was blocked due to saftey concerns regarding the prompt.
 #print(response.prompt_feedback)
 #print("break2")
 print(response.candidates)
-print("break3")
+print("break3\n")
 
 #stream the response as it is being generated, and the model will return chunks of the response as soon as they are generated
 response = model.generate_content(user_input, stream=True)
 #when streaming, some response attributes are not available until you've iterated through all the response chunks. This is demonstrated below
 #print(response.text)
-print("break4")
+print("break4\n")
 for chunk in response:
   print(chunk.text)
   print("_"*80)
 
-print("break5")
+print("break5\n")
