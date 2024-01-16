@@ -1,9 +1,7 @@
 #https://makersuite.google.com/app/apikey
 #https://ai.google.dev/tutorials/python_quickstart
 #pip install -q -U google-generativeai
-#pip3 install Pillow
 import google.generativeai as genai
-import PIL.Image
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -46,16 +44,3 @@ print("break4")
 for chunk in response:
   print(chunk.text)
   print("_"*80)
-
-
-img = PIL.Image.open('image.jpeg')
-
-model = genai.GenerativeModel('gemini-pro-vision')
-response1 = model.generate_content(img)
-print(response1.text)
-print("break5")
-
-response2 = model.generate_content(["Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.", img], stream=True)
-response2.resolve()
-print(response2.text)
-print("break6")
