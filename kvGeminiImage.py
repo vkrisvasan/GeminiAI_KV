@@ -18,8 +18,20 @@ for m in genai.list_models():
     if 'generateContent' in m.supported_generation_methods:
         print(m.name)
 """
+# Prompt the user for the image file path
+image_path = input("Please enter the path to the image file: ")
 
-img = PIL.Image.open('image1.jpeg')
+# Display the entered path
+print("You entered:", image_path)
+
+try:
+    with PIL.Image.open(image_path) as img:
+        img.show()  # This will display the image
+        # You can add more operations on the image here
+except FileNotFoundError:
+    print("The file was not found. Please check the path.")
+except IOError:
+    print("Error in loading the image. The file may not be an image.")
 
 model = genai.GenerativeModel('gemini-pro-vision')
 response1 = model.generate_content(img)
