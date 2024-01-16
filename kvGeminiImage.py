@@ -19,7 +19,7 @@ for m in genai.list_models():
         print(m.name)
 """
 
-img = PIL.Image.open('image.jpeg')
+img = PIL.Image.open('image1.jpeg')
 
 model = genai.GenerativeModel('gemini-pro-vision')
 response1 = model.generate_content(img)
